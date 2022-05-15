@@ -1,11 +1,13 @@
 
-import openingTimes from "./data/userData";
-import WeekDays from "./components/WeekDays";
-import { useEffect, useState } from "react";
+import openingTimes from "./data/userData"
+import WeekDays from "./components/WeekDays"
+import { useState, useEffect } from "react"
 
 const App = () => {
 
   const weekDays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+  const current = new Date().getDay()
+  const timeZone = new Date().toDateString()
   const weekDaysObject = weekDays.reduce(function(result, item, index, array) {
     result[item] = []
     return result
@@ -30,8 +32,6 @@ const App = () => {
         weekDaysObject[value.day].push(eventObject)
       }
     })
-
-
     setOpeningTimeData(prevState => ({ ...prevState, weekDaysObject}))
   }
 
@@ -56,6 +56,8 @@ const App = () => {
     windowBuilder(events)
   }
 
+  // processInputData(openingTimes)
+
   useEffect(() => {
     processInputData(openingTimes)
   }, [])
@@ -63,12 +65,21 @@ const App = () => {
   return (
     <div className="vh-100 d-flex align-items-center">
       <div className="container">
-        {/* <h3 className="d-flex justify-content-end"></h3> */}
-        <div className="accordion" id="weekdaysAccordion">
-          <WeekDays openingTimes={openingTimeData}/>  
+        <div className="d-flex flex-wrap justify-content-between mb-3" >
+          <div>
+            <h1 className="display-4">Opening Times</h1>
+          </div>
+          <div className="mt-auto">
+            <h3>{timeZone}</h3>
+            </div>
         </div>
-      </div>
-    </div>    
+        <div className="accordion" id="weekdaysAccordion">
+          <WeekDays openingTimes={openingTimeData} dayNames={weekDays}/>  
+        </div>
+        <p className="mt-3 d-flex justify-content-end">All times in GMT</p>
+  
+      </div>    
+    </div>
   );
 };
 
