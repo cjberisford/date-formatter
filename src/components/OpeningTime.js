@@ -1,7 +1,10 @@
 import React from 'react'
 
-export default function OpeningTime({ type, value }) {
+export default function OpeningTime({ openAt, closeAt }) {
+
+
+
   return (
-    <div>{type}, {value}</div>
+    <div>{openAt} - {closeAt}</div>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import OpeningTimes from "./OpeningTimes";
 
-export default function WeekDay({ dayName, openingTimes}) {
+export default function WeekDay({ dayName, events}) {
 
   const weekDays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
   const current = new Date().getDay()
@@ -16,7 +16,7 @@ export default function WeekDay({ dayName, openingTimes}) {
     <div id={"collapse" + dayName} 
       className={"accordion-collapse collapse " + (dayName === weekDays[current] ? "show" : "")} aria-labelledby="heading{dayName}" data-bs-parent="#weekdaysAccordion">
       <div className="accordion-body">
-        <OpeningTimes openingTimes={openingTimes} />
+        <OpeningTimes events={events} />
       </div>
     </div>
   </div>
