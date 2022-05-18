@@ -10,5 +10,5 @@ export default function OpeningTimes( { events } ) {
       })
     )
   }
-  return 'Closed'
+  return <p className="emphasis">Sorry, we're closed</p>
 }

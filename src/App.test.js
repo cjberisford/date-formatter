@@ -1,19 +1,36 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import App from './App'
+import { act } from "react-dom/test-utils";
+import { render, unmountComponentAtNode } from "react-dom";
 
-it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<App />, div)
+
+let container = null;
+
+beforeEach(() => {
+  // setup a DOM element as a render target
+  container = document.createElement("div");
+  document.body.appendChild(container);});
+
+afterEach(() => {
+  // cleanup on exiting
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
+});
+
+
+describe('Date-formatter app', function() {
+
+  const weekDays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+
+  it("succesfully renders the page", () => {
+    act(() => {
+      render(<App />, container)
+    })
+    expect(container.textContent).toContain('Opening Times')
+  })
 })
 
-// Validate input data -- Must be equal number of opening/closing times
-
-// Validate input data -- When sorted, opening times must be followed by a closing time and vice versa 
-
-// Closing time inserted BEFORE opening time
-
-// Closing time equal to opening time -- should this be ignored?
 
 // Closing time over a day after opening time
 
