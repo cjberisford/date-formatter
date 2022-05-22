@@ -17,4 +17,4 @@ A simple app that renders restaurant opening times by arranging the above data s
 
 Components are structured according to the following diagram:
 
-![Component Structure]](images/class_diagram.png)
+![Component Structure]](./images/class_diagram.png)
