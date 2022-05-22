@@ -41,7 +41,7 @@ const App = () => {
     const openEvents = events.filter(event => event.type === "open").length;
     const closeEvents = events.filter(event => event.type === "close").length;
     if (openEvents !== closeEvents) {
-      throw new EventException("Invalid input data. 'Open' times must be followed by 'Close' times. Consecutive close events will be ignored output may not display correctly.")
+      throw new EventException("Invalid input data. 'Open' times must be followed by 'Close' times. Consecutive close events will be ignored. Output may not display correctly.")
     }
   }
   
