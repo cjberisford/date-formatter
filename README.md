@@ -13,4 +13,8 @@ Assumes input data in the form of:
 }
 ```
 
-This app renders restaurant opening times by arranging the above data structure into a list of events that occur in a given week. These are then ordered and displayed according to the day in which they occur (specifically, open).
+A simple app that renders restaurant opening times by arranging the above data structure into a list of events that occur in a given week. These events are then ordered and displayed according to the day the restaurant opens. 
+
+Components are structured according to the following diagram:
+
+![Component Structure]](images/class_diagram.png)

@@ -2,7 +2,7 @@ import React from 'react'
 import OpeningTimes from "./OpeningTimes";
 import { useState, useEffect } from "react"
 
-export default function WeekDay({ currentDay, dayName, dayNames, events}) {
+export default function WeekDay({ currentDay, dayName, events}) {
 
   const [today, setToday] = useState(false)
 
