@@ -4,7 +4,7 @@ date-formatter - App.js
 Lists restaurant opening times based on JSON input data from /data
 */
 
-import userData from "./data/testData"
+import userData from "./data/userData"
 import WeekDays from './components/WeekDays'
 import { useState, useEffect } from "react"
 import DisplayError from "./components/DisplayError";
